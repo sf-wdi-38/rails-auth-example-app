@@ -9,6 +9,13 @@
   </head>
 
   <body>
+    <% if !@current_user.nil? && @current_user.name == "Nathan" %>
+      <p> Hello, Nathan! </p>
+    <% elsif !@current_user.nil? %>
+      <p> Hello, welcome back!</p>
+    <% else %>
+      <p> Please sign up </p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

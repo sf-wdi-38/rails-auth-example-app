@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # show sign up form page
   # get '/signup', to: 'users#new'
   def new
+     private_method
     @user = User.new
   end
   # actually add user to db
