@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
         flash[:errors] = "User email or password is incorrect."
     		# FUTURE: flash notice that asks if password is forgotten (reset through email)
     		# FUTURE: increase some incorrect login counter in session
-    		# redirect to page with login form (also has signup link)
+    		# redirect to page with login form (FUTURE: form also has signup link)
         redirect_to login_path
       end
     else
@@ -44,6 +44,8 @@ class SessionsController < ApplicationController
   # # handle request from clicking the logout link
   # get '/logout', to: 'sessions#destroy', as: 'logout'
   def destroy
+    session[:user_id] = nil
+    redirect_to signup_path
   end
 
   private

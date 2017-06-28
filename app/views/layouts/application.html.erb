@@ -9,11 +9,16 @@
   </head>
 
   <body>
+    <% if flash[:errors] %>
+      Oops! Please correct the following: <%= flash[:errors] %>
+    <% end %>
+
     <% if !current_user.nil? %>
       <p> Hello, welcome back!</p>
     <% else %>
       <p> Please sign up </p>
     <% end %>
+
     <%= yield %>
   </body>
 </html>
