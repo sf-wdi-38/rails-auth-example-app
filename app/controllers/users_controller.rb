@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   # show sign up form page
   # get '/signup', to: 'users#new'
   def new
-     private_method
     @user = User.new
   end
   # actually add user to db
@@ -20,7 +19,8 @@ class UsersController < ApplicationController
     if user.save
     # if user saves properly:
     	# TODO: redirect to a user created page with instructions for email confirmation
-      # TODO: log user in
+      # log user in
+      session[:user_id] = user.id
     	# redirect to home / success
       redirect_to "/"
     else
